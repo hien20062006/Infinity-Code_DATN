@@ -1,5 +1,4 @@
 # Infinity Code-DATN
-# Huỳnh Võ Minh Hiền
 
 # Cấu trúc dự án
 
