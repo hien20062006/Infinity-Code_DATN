@@ -1,0 +1,29 @@
+mien_nam = [
+    "Thành phố Hồ Chí Minh",
+    "Tỉnh Bình Dương",
+    "Tỉnh Đồng Nai",
+    "Tỉnh Bà Rịa - Vũng Tàu",
+    "Tỉnh Tây Ninh",
+    "Tỉnh Bình Phước",
+    "Tỉnh Long An",
+    "Tỉnh Tiền Giang",
+    "Tỉnh Bến Tre",
+    "Tỉnh Trà Vinh",
+    "Tỉnh Vĩnh Long",
+    "Tỉnh Đồng Tháp",
+    "Tỉnh An Giang",
+    "Tỉnh Kiên Giang",
+    "Thành phố Cần Thơ",
+    "Tỉnh Hậu Giang",
+    "Tỉnh Sóc Trăng",
+    "Tỉnh Bạc Liêu",
+    "Tỉnh Cà Mau"
+]
+df_mien_nam = df[df["ten_tinh"].isin(mien_nam)]
+df_mien_nam.to_excel(
+    "dia_chi_mien_nam_tinh_huyen_xa.xlsx",
+    index=False
+)
+
+print("Đã tạo file miền Nam")
+print("Số dòng miền Nam:", len(df_mien_nam))
