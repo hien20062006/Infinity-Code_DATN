@@ -7,50 +7,39 @@ Kho dữ liệu sau khi hoàn thiện được kết nối với Tableau Desktop
 # Các Giai Đoạn & Tính Năng Cốt Lõi
 Hệ thống được tổ chức theo quy trình ELT (Extract – Load – Transform).
 ```mermaid
-flowchart LR
+flowchart TD
 
-subgraph S1["🌐 Data Sources"]
-A1["Thiết bị điện tử<br/>Thegioididong<br/>FPT Shop<br/>CellphoneS"]
-A2["Đơn vị vận chuyển<br/>GHN<br/>GHTK<br/>Viettel Post<br/>J&T Express"]
-A3["Dữ liệu công khai<br/>Đăng ký kinh doanh<br/>Open API Tỉnh/Thành"]
-end
+A["🌐 Data Sources
+• Thegioididong
+• FPT Shop
+• CellphoneS
+• GHN
+• GHTK
+• Viettel Post
+• J&T Express
+• Đăng ký kinh doanh
+• Provinces Open API"]
 
-subgraph S2["🐍 Python Data Pipeline"]
-B1["Web Scraping"]
-B2["Data Validation"]
-B3["Data Cleaning"]
-B4["Data Transformation"]
-end
+A --> B["🐍 Python Web Scraping"]
 
-subgraph S3["🗄️ Data Warehouse"]
-C1["Raw Data"]
-C2["SQL Server - Staging"]
-C3["Star Schema"]
-end
+B --> C["📂 Raw Dataset"]
 
-subgraph S4["📊 Analytics"]
-D1["Tableau Dashboard"]
-D2["Tableau Story"]
-D3["Business Insights"]
-end
+C --> D["✔ Data Validation"]
 
-A1 --> B1
-A2 --> B1
-A3 --> B1
+D --> E["🧹 Data Cleaning"]
 
-B1 --> B2
-B2 --> B3
-B3 --> B4
+E --> F["🔄 Data Transformation"]
 
-B4 --> C1
-C1 --> C2
-C2 --> C3
+F --> G["🗄️ SQL Server Staging"]
 
-C3 --> D1
-C3 --> D2
+G --> H["⭐ Data Warehouse
+(Star Schema)"]
 
-D1 --> D3
-D2 --> D3
+H --> I["📊 Tableau Dashboard"]
+
+I --> J["📖 Tableau Story"]
+
+J --> K["💡 Business Insights"]
 ```
 # 1. Extract (Trích Xuất & Kiểm Tra Dữ Liệu)
 Tự động đọc dữ liệu từ các tệp CSV/Excel trong thư mục data/raw/.
