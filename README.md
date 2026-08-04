@@ -129,43 +129,37 @@ Visualization
 Tableau Desktop
 # 📂 Cấu trúc thư mục
 ```text
-Vietnam-Electronics-Analytics/
+PhanTich-DienTu-VietNam/
 │
 ├── data/
-│   ├── raw/                     # Dữ liệu thu thập từ Web Scraping và API
-│   ├── processed/               # Dữ liệu sau khi làm sạch và chuẩn hóa
-│   ├── output/                  # Dữ liệu đầu ra phục vụ phân tích
-│   └── backup/                  # Dữ liệu sao lưu (nếu có)
+│   ├── raw/                     # File CSV thu thập từ Web Scraping
+│   ├── cleaned/                 # File Excel sau khi làm sạch dữ liệu
+│   ├── transformed/             # Dữ liệu sau khi chuẩn hóa
+│   └── output/                  # Dữ liệu cuối cùng để nạp vào SQL Server
 │
 ├── docs/
-│   ├── images/                  # Hình ảnh README, Dashboard
-│   ├── diagrams/                # Sơ đồ kiến trúc hệ thống
-│   └── report/                  # Tài liệu đồ án
-│
-├── notebooks/                   # Notebook phục vụ khám phá dữ liệu (EDA)
+│   ├── images/                  # Hình ảnh Dashboard & README
+│   ├── diagrams/                # Sơ đồ hệ thống
+│   └── report/                  # Báo cáo đồ án
 │
 ├── sql/
-│   ├── staging/                 # Script tạo Staging Database
+│   ├── staging/                 # Script tạo bảng Staging
 │   ├── warehouse/               # Script Star Schema
-│   ├── procedures/              # Stored Procedures
-│   └── views/                   # SQL Views
+│   └── procedures/              # Stored Procedures
 │
 ├── src/
-│   ├── extract/                 # Web Scraping & API Integration
-│   ├── transform/               # Data Validation, Cleaning, Transformation
-│   ├── load/                    # Load dữ liệu vào SQL Server
+│   ├── scraper/                 # Python Web Scraping
+│   ├── loader/                  # Nạp dữ liệu vào SQL Server
 │   ├── warehouse/               # Xây dựng Data Warehouse
-│   ├── utils/                   # Hàm tiện ích
-│   └── main.py                  # Điểm khởi chạy chương trình
+│   ├── utils/                   # Hàm hỗ trợ
+│   └── main.py                  # Chương trình chính
 │
 ├── tableau/
 │   ├── dashboard.twbx           # Tableau Workbook
 │   └── screenshots/             # Ảnh Dashboard
 │
-├── requirements.txt             # Danh sách thư viện Python
-├── .env.example                 # Mẫu cấu hình môi trường
+├── requirements.txt
 ├── .gitignore
-├── LICENSE
 └── README.md
 ```
 # ⚙️ Hướng dẫn cài đặt
