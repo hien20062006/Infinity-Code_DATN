@@ -103,3 +103,18 @@ DimCategory
 DimCompany
 
 Kho dữ liệu được tối ưu hóa nhằm tăng hiệu năng truy vấn, giúp Tableau khai thác dữ liệu nhanh chóng và hiệu quả.
+# Phân Tích & Trực Quan Hóa Dữ Liệu Bằng Tableau
+
+Sau khi dữ liệu được nạp vào Data Warehouse, hệ thống kết nối trực tiếp với Tableau Desktop để xây dựng các Dashboard và Story phục vụ phân tích.
+
+Các Dashboard bao gồm:
+
+Dashboard tổng quan ngành điện tử Việt Nam.
+Phân tích kim ngạch xuất khẩu theo thời gian.
+Phân tích kim ngạch nhập khẩu theo thời gian.
+So sánh các nhóm sản phẩm điện tử.
+Phân tích theo quốc gia đối tác.
+Phân tích theo khu vực và địa phương.
+Top sản phẩm có giá trị xuất khẩu cao.
+Dashboard KPI tổng hợp.
+Tableau Story trình bày xu hướng phát triển của ngành điện tử Việt Nam qua các năm.
