@@ -27,35 +27,36 @@ https://dangkykinhdoanh.gov.vn/vn/Pages/Trangchu.aspx
 Dữ liệu hành chính
 https://provinces.open-api.vn/api/v2/
 # 🏗️ Kiến trúc hệ thống
-Data Sources
-      │
-      ▼
-Python Web Scraping / API
-      │
-      ▼
-Raw Dataset
-      │
-      ▼
-Data Validation
-      │
-      ▼
-Data Cleaning
-      │
-      ▼
-Data Transformation
-      │
-      ▼
-SQL Server Staging
-      │
-      ▼
-Data Warehouse
-(Star Schema)
-      │
-      ▼
-Tableau Dashboard
-      │
-      ▼
-Business Insights
+```mermaid
+flowchart TD
+
+A1["🌐 Thegioididong"]
+A2["🌐 FPT Shop"]
+A3["🌐 CellphoneS"]
+A4["🚚 GHN"]
+A5["🚚 GHTK"]
+A6["🚚 Viettel Post"]
+A7["🚚 J&T Express"]
+A8["🏢 Đăng ký kinh doanh"]
+A9["🗺 Provinces Open API"]
+
+A1 --> B["🐍 Python Web Scraping"]
+A2 --> B
+A3 --> B
+A4 --> B
+A5 --> B
+A6 --> B
+A7 --> B
+A8 --> B
+A9 --> B
+
+B --> C["📂 Raw Dataset"]
+C --> D["🧹 Data Processing"]
+D --> E["🗄️ SQL Server"]
+E --> F["⭐ Star Schema"]
+F --> G["📊 Tableau Dashboard"]
+G --> H["💡 Business Insights"]
+```
 # 🚀 Quy trình ELT
 ## 1. Extract
 
