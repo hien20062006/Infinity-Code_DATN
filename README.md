@@ -1,110 +1,204 @@
 # Đồ Án Tốt Nghiệp: Phân Tích Ngành Điện Tử Việt Nam
-Chào mừng bạn đến với kho lưu trữ mã nguồn của dự án Phân tích Ngành Điện tử Việt Nam. Đây là đồ án tốt nghiệp thiết kế và xây dựng một quy trình ELT (Extract – Load – Transform) nhằm thu thập, tích hợp, làm sạch và chuẩn hóa dữ liệu về ngành điện tử Việt Nam, đồng thời xây dựng Kho dữ liệu (Data Warehouse) phục vụ phân tích dữ liệu và trực quan hóa bằng Tableau.
+Chào mừng bạn đến với kho lưu trữ mã nguồn của dự án Phân tích Ngành Điện tử Việt Nam.
+
+Đây là đồ án tốt nghiệp xây dựng một hệ thống Data Engineering hoàn chỉnh, ứng dụng quy trình ELT (Extract – Load – Transform) để tự động thu thập, xử lý, lưu trữ và trực quan hóa dữ liệu ngành điện tử Việt Nam.
+
+Hệ thống sử dụng Python để thu thập dữ liệu từ nhiều website thương mại điện tử, doanh nghiệp và dịch vụ logistics; sau đó làm sạch, chuẩn hóa dữ liệu, xây dựng Data Warehouse trên SQL Server theo mô hình Star Schema, cuối cùng trực quan hóa bằng Tableau Dashboard nhằm hỗ trợ phân tích và ra quyết định.
 # Tổng Quan Dự Án
-Dự án giải quyết bài toán xử lý dữ liệu ngành điện tử Việt Nam từ nhiều nguồn dữ liệu (CSV, Excel hoặc dữ liệu thống kê công khai), thực hiện kiểm soát chất lượng dữ liệu (Data Quality) thông qua các bộ quy tắc nghiệp vụ được cấu hình sẵn, tự động phát hiện và xử lý dữ liệu lỗi (Data Healing), sau đó nạp dữ liệu vào SQL Server Data Warehouse theo mô hình Star Schema.
+Thu thập dữ liệu ngành điện tử Việt Nam từ nhiều nguồn.
+Tự động hóa quá trình xử lý dữ liệu.
+Xây dựng Data Warehouse phục vụ Business Intelligence.
+Phân tích xu hướng thị trường điện tử Việt Nam.
+Trực quan hóa dữ liệu bằng Tableau.
+# 🌐 Nguồn dữ liệu
+Hệ thống tự động thu thập dữ liệu bằng Python Web Scraping và REST API từ các nguồn sau.
 
-Kho dữ liệu sau khi hoàn thiện được kết nối với Tableau Desktop để xây dựng Dashboard và Story trực quan, hỗ trợ phân tích xu hướng phát triển ngành điện tử Việt Nam, giúp doanh nghiệp và nhà quản lý dễ dàng khai thác dữ liệu phục vụ ra quyết định.
-# Các Giai Đoạn & Tính Năng Cốt Lõi
-Hệ thống được tổ chức theo quy trình ELT (Extract – Load – Transform).
-```mermaid
-flowchart TD
+Thiết bị điện tử
+https://www.thegioididong.com/dtdd
+https://fptshop.com.vn/may-tinh-xach-tay
+https://cellphones.com.vn/mobile.html
+Dịch vụ vận chuyển
+https://ghn.vn/
+https://ghtk.vn/
+https://viettelpost.com.vn/
+https://jtexpress.vn/vi
+Dữ liệu doanh nghiệp
+https://dangkykinhdoanh.gov.vn/vn/Pages/Trangchu.aspx
+Dữ liệu hành chính
+https://provinces.open-api.vn/api/v2/
+# 🏗️ Kiến trúc hệ thống
+Data Sources
+      │
+      ▼
+Python Web Scraping / API
+      │
+      ▼
+Raw Dataset
+      │
+      ▼
+Data Validation
+      │
+      ▼
+Data Cleaning
+      │
+      ▼
+Data Transformation
+      │
+      ▼
+SQL Server Staging
+      │
+      ▼
+Data Warehouse
+(Star Schema)
+      │
+      ▼
+Tableau Dashboard
+      │
+      ▼
+Business Insights
+# 🚀 Quy trình ELT
+## 1. Extract
 
-A["🌐 Data Sources
-• Thegioididong
-• FPT Shop
-• CellphoneS
-• GHN
-• GHTK
-• Viettel Post
-• J&T Express
-• Đăng ký kinh doanh
-• Provinces Open API"]
+Hệ thống sử dụng Python để:
 
-A --> B["🐍 Python Web Scraping"]
+Thu thập dữ liệu tự động từ các website.
+Gọi API lấy dữ liệu hành chính.
+Chuẩn hóa dữ liệu đầu vào.
+Lưu dữ liệu thô.
+## 2. Load
 
-B --> C["📂 Raw Dataset"]
+Sau khi thu thập:
 
-C --> D["✔ Data Validation"]
+Dữ liệu được nạp vào SQL Server.
+Lưu vào Staging Database.
+Tối ưu tốc độ nạp bằng Batch Insert và fast_executemany.
+## 3. Transform
 
-D --> E["🧹 Data Cleaning"]
+Thực hiện:
 
-E --> F["🔄 Data Transformation"]
+Kiểm tra chất lượng dữ liệu.
+Loại bỏ dữ liệu trùng.
+Xử lý giá trị thiếu.
+Chuẩn hóa tên sản phẩm.
+Chuẩn hóa tỉnh/thành phố.
+Chuẩn hóa kiểu dữ liệu.
+Chuẩn hóa đơn vị tiền tệ.
 
-F --> G["🗄️ SQL Server Staging"]
+Sau đó dữ liệu được đưa vào Data Warehouse theo mô hình Star Schema.
 
-G --> H["⭐ Data Warehouse
-(Star Schema)"]
-
-H --> I["📊 Tableau Dashboard"]
-
-I --> J["📖 Tableau Story"]
-
-J --> K["💡 Business Insights"]
-```
-# 1. Extract (Trích Xuất & Kiểm Tra Dữ Liệu)
-Tự động đọc dữ liệu từ các tệp CSV/Excel trong thư mục data/raw/.
-Kiểm tra chất lượng dữ liệu bằng Data Quality Validator.
-Phát hiện dữ liệu thiếu, sai định dạng, trùng lặp hoặc vi phạm quy tắc nghiệp vụ.
-Xuất báo cáo chất lượng dữ liệu tại:
-docs/03_notes/engineering/data_issues.txt
-# 2. Transform (Biến Đổi & Chuẩn Hóa)
-Data Healing (Làm sạch dữ liệu)
-
-Hệ thống tự động:
-
-Xử lý dữ liệu bị thiếu bằng giá trị trung bình hoặc trung vị theo từng nhóm dữ liệu.
-Chuẩn hóa tên tỉnh/thành phố.
-Chuẩn hóa tên nhóm sản phẩm điện tử.
-Chuẩn hóa định dạng ngày tháng.
-Chuẩn hóa đơn vị tính và giá trị tiền tệ.
-Loại bỏ dữ liệu trùng lặp.
-Chuẩn hóa kiểu dữ liệu phục vụ Data Warehouse.
-Data Segregation (Phân loại dữ liệu)
-
-Sau khi xử lý, dữ liệu được chia thành:
-
-PASS
-Dữ liệu hợp lệ.
-WARNING
-Dữ liệu đã được tự động sửa lỗi.
-CRITICAL
-Các bản ghi sai nghiêm trọng (ví dụ: giá trị âm, thiếu khóa chính, sai năm thống kê...) được tách riêng để phục vụ kiểm tra.
-
-Các dữ liệu đầu ra được lưu tại:
-
-data/output/
-# 3. Load (Nạp Dữ Liệu Vào Kho Dữ Liệu)
-
-Dữ liệu sạch được nạp vào bảng Staging trong SQL Server với tốc độ tối ưu thông qua fast_executemany.
-
-Sau đó hệ thống tự động thực thi Stored Procedure:
-
-sp_load_star_schema
-
-để phân bổ dữ liệu sang mô hình Star Schema.
-
+# ⭐ Data Warehouse
 Fact Table
 FactElectronics
 Dimension Tables
-DimTime
-DimLocation
 DimProduct
 DimCategory
+DimLocation
+DimTime
 DimCompany
+# 📊 Tableau Dashboard
 
-Kho dữ liệu được tối ưu hóa nhằm tăng hiệu năng truy vấn, giúp Tableau khai thác dữ liệu nhanh chóng và hiệu quả.
-# Phân Tích & Trực Quan Hóa Dữ Liệu Bằng Tableau
+Sau khi hoàn thành Data Warehouse, Tableau được sử dụng để xây dựng Dashboard gồm:
 
-Sau khi dữ liệu được nạp vào Data Warehouse, hệ thống kết nối trực tiếp với Tableau Desktop để xây dựng các Dashboard và Story phục vụ phân tích.
+Dashboard tổng quan ngành điện tử Việt Nam
+Dashboard doanh thu
+Dashboard giá bán
+Dashboard sản phẩm
+Dashboard thương hiệu
+Dashboard địa phương
+Dashboard logistics
+Dashboard xu hướng theo thời gian
+Tableau Story
+# 🛠 Công nghệ sử dụng
+Ngôn ngữ
+Python 3.10+
+Web Scraping
+Requests
+BeautifulSoup4
+Selenium
+Xử lý dữ liệu
+Pandas
+NumPy
+Database
+SQL Server
+SQLAlchemy
+PyODBC
+Data Warehouse
+Star Schema
+Visualization
+Tableau Desktop
+# 📂 Cấu trúc thư mục
+project/
+│
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── output/
+│
+├── docs/
+│
+├── notebooks/
+│
+├── src/
+│   ├── extract/
+│   ├── load/
+│   ├── transform/
+│   ├── warehouse/
+│   └── utils/
+│
+├── tableau/
+│
+├── requirements.txt
+│
+└── README.md
+# ⚙️ Hướng dẫn cài đặt
+Clone Project
+git clone <repository-url>
 
-Các Dashboard bao gồm:
+cd DATN
+Tạo Virtual Environment
 
-Dashboard tổng quan ngành điện tử Việt Nam.
-Phân tích kim ngạch xuất khẩu theo thời gian.
-Phân tích kim ngạch nhập khẩu theo thời gian.
-So sánh các nhóm sản phẩm điện tử.
-Phân tích theo quốc gia đối tác.
-Phân tích theo khu vực và địa phương.
-Top sản phẩm có giá trị xuất khẩu cao.
-Dashboard KPI tổng hợp.
-Tableau Story trình bày xu hướng phát triển của ngành điện tử Việt Nam qua các năm.
+Windows
+
+python -m venv .venv
+
+.venv\Scripts\activate
+
+Linux/macOS
+
+python3 -m venv .venv
+
+source .venv/bin/activate
+Cài đặt thư viện
+pip install -r requirements.txt
+Cấu hình môi trường
+DB_SERVER=YOUR_SERVER
+
+DB_NAME=ElectronicsDW
+
+DB_USER=sa
+
+DB_PASS=YOUR_PASSWORD
+▶️ Chạy hệ thống
+python -m src.main
+
+Hoặc chỉ chạy bước thu thập dữ liệu
+
+python -m src.scraper
+# ✨ Chức năng nổi bật
+Web Scraping tự động
+API Integration
+Data Validation
+Data Cleaning
+Data Transformation
+SQL Server Integration
+Data Warehouse
+Star Schema
+Tableau Dashboard
+Tableau Story
+Business Intelligence
+# 📈 Kết quả đạt được
+Tự động hóa quá trình thu thập dữ liệu.
+Chuẩn hóa dữ liệu ngành điện tử Việt Nam.
+Xây dựng Data Warehouse phục vụ phân tích.
+Dashboard trực quan trên Tableau.
+Hỗ trợ phân tích xu hướng thị trường điện tử Việt Nam.
