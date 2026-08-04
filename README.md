@@ -128,29 +128,46 @@ Star Schema
 Visualization
 Tableau Desktop
 # 📂 Cấu trúc thư mục
-project/
+```text
+Vietnam-Electronics-Analytics/
 │
 ├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── output/
+│   ├── raw/                     # Dữ liệu thu thập từ Web Scraping và API
+│   ├── processed/               # Dữ liệu sau khi làm sạch và chuẩn hóa
+│   ├── output/                  # Dữ liệu đầu ra phục vụ phân tích
+│   └── backup/                  # Dữ liệu sao lưu (nếu có)
 │
 ├── docs/
+│   ├── images/                  # Hình ảnh README, Dashboard
+│   ├── diagrams/                # Sơ đồ kiến trúc hệ thống
+│   └── report/                  # Tài liệu đồ án
 │
-├── notebooks/
+├── notebooks/                   # Notebook phục vụ khám phá dữ liệu (EDA)
+│
+├── sql/
+│   ├── staging/                 # Script tạo Staging Database
+│   ├── warehouse/               # Script Star Schema
+│   ├── procedures/              # Stored Procedures
+│   └── views/                   # SQL Views
 │
 ├── src/
-│   ├── extract/
-│   ├── load/
-│   ├── transform/
-│   ├── warehouse/
-│   └── utils/
+│   ├── extract/                 # Web Scraping & API Integration
+│   ├── transform/               # Data Validation, Cleaning, Transformation
+│   ├── load/                    # Load dữ liệu vào SQL Server
+│   ├── warehouse/               # Xây dựng Data Warehouse
+│   ├── utils/                   # Hàm tiện ích
+│   └── main.py                  # Điểm khởi chạy chương trình
 │
 ├── tableau/
+│   ├── dashboard.twbx           # Tableau Workbook
+│   └── screenshots/             # Ảnh Dashboard
 │
-├── requirements.txt
-│
+├── requirements.txt             # Danh sách thư viện Python
+├── .env.example                 # Mẫu cấu hình môi trường
+├── .gitignore
+├── LICENSE
 └── README.md
+```
 # ⚙️ Hướng dẫn cài đặt
 Clone Project
 git clone <repository-url>
