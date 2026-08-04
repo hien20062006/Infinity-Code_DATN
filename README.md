@@ -162,55 +162,140 @@ PhanTich-DienTu-VietNam/
 ├── .gitignore
 └── README.md
 ```
-# ⚙️ Hướng dẫn cài đặt
-Clone Project
-git clone <repository-url>
+# ⚙️ Hướng Dẫn Cài Đặt
 
-cd DATN
-Tạo Virtual Environment
+## 1. Sao chép dự án
 
-Windows
+```bash
+git clone https://github.com/your-username/Vietnam-Electronics-Analytics.git
 
+cd Vietnam-Electronics-Analytics
+```
+
+## 2. Tạo môi trường ảo (Virtual Environment)
+
+### Windows
+
+```bash
 python -m venv .venv
 
 .venv\Scripts\activate
+```
 
-Linux/macOS
+### Linux / macOS
 
+```bash
 python3 -m venv .venv
 
 source .venv/bin/activate
-Cài đặt thư viện
+```
+
+## 3. Cài đặt thư viện
+
+```bash
 pip install -r requirements.txt
-Cấu hình môi trường
+```
+
+## 4. Cấu hình môi trường
+
+Tạo file `.env` tại thư mục gốc của dự án và khai báo thông tin kết nối SQL Server.
+
+```text
 DB_SERVER=YOUR_SERVER
-
 DB_NAME=ElectronicsDW
-
 DB_USER=sa
-
 DB_PASS=YOUR_PASSWORD
-▶️ Chạy hệ thống
-python -m src.main
+```
 
-Hoặc chỉ chạy bước thu thập dữ liệu
+---
 
+# ▶️ Quy Trình Thực Hiện
+
+### Bước 1. Thu thập dữ liệu
+
+Chạy chương trình Python để tự động thu thập dữ liệu từ các website thương mại điện tử, dịch vụ vận chuyển và API.
+
+```bash
 python -m src.scraper
-# ✨ Chức năng nổi bật
-Web Scraping tự động
-API Integration
-Data Validation
-Data Cleaning
-Data Transformation
-SQL Server Integration
-Data Warehouse
-Star Schema
-Tableau Dashboard
-Tableau Story
-Business Intelligence
-# 📈 Kết quả đạt được
-Tự động hóa quá trình thu thập dữ liệu.
-Chuẩn hóa dữ liệu ngành điện tử Việt Nam.
-Xây dựng Data Warehouse phục vụ phân tích.
-Dashboard trực quan trên Tableau.
-Hỗ trợ phân tích xu hướng thị trường điện tử Việt Nam.
+```
+
+Dữ liệu sau khi thu thập sẽ được lưu tại:
+
+```text
+data/raw/
+```
+
+---
+
+### Bước 2. Làm sạch và chuẩn hóa dữ liệu
+
+Tiến hành kiểm tra và xử lý dữ liệu bằng **Microsoft Excel**, bao gồm:
+
+- Loại bỏ dữ liệu trùng lặp.
+- Xử lý dữ liệu bị thiếu.
+- Chuẩn hóa tên sản phẩm, thương hiệu và địa phương.
+- Chuẩn hóa định dạng ngày tháng và đơn vị dữ liệu.
+- Chuyển đổi dữ liệu sang định dạng phục vụ phân tích.
+
+Dữ liệu sau khi xử lý được lưu tại:
+
+```text
+data/cleaned/
+```
+
+---
+
+### Bước 3. Nạp dữ liệu vào SQL Server
+
+Sau khi dữ liệu được làm sạch, tiến hành nạp dữ liệu vào SQL Server để chuẩn bị xây dựng Kho dữ liệu (Data Warehouse).
+
+---
+
+### Bước 4. Xây dựng Data Warehouse
+
+Thực hiện các Script SQL để xây dựng mô hình **Star Schema**, bao gồm:
+
+- FactElectronics
+- DimProduct
+- DimCategory
+- DimCompany
+- DimLocation
+- DimTime
+
+---
+
+### Bước 5. Trực quan hóa dữ liệu
+
+Kết nối Tableau Desktop với SQL Server để xây dựng các Dashboard và Story phục vụ phân tích dữ liệu.
+
+---
+
+# ✨ Chức Năng Nổi Bật
+
+- 🌐 Thu thập dữ liệu tự động bằng Python Web Scraping.
+- 🔗 Kết nối và khai thác dữ liệu từ REST API.
+- ✔ Kiểm tra và đánh giá chất lượng dữ liệu.
+- 🧹 Làm sạch và chuẩn hóa dữ liệu.
+- 🔄 Chuyển đổi dữ liệu phục vụ phân tích.
+- 📄 Xuất dữ liệu dưới định dạng CSV và Excel.
+- 🗄 Tích hợp với SQL Server.
+- ⭐ Xây dựng Kho dữ liệu theo mô hình Star Schema.
+- 📊 Xây dựng Dashboard trực quan bằng Tableau.
+- 📖 Thiết kế Tableau Story phục vụ phân tích.
+- 📈 Hỗ trợ phân tích dữ liệu và ra quyết định.
+
+---
+
+# 📈 Kết Quả Đạt Được
+
+Sau khi triển khai, hệ thống đạt được các kết quả sau:
+
+- Tự động thu thập dữ liệu từ nhiều nguồn trực tuyến.
+- Chuẩn hóa và làm sạch dữ liệu trước khi lưu trữ.
+- Xây dựng Kho dữ liệu (Data Warehouse) trên SQL Server.
+- Thiết kế mô hình Star Schema phục vụ phân tích.
+- Xây dựng Dashboard trực quan bằng Tableau.
+- Phân tích xu hướng phát triển của ngành điện tử Việt Nam.
+- Hỗ trợ khai thác dữ liệu và cung cấp thông tin phục vụ Business Intelligence.
+
+---
