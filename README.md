@@ -4,7 +4,26 @@ Chào mừng bạn đến với kho lưu trữ mã nguồn của dự án Phân 
 Dự án giải quyết bài toán xử lý dữ liệu ngành điện tử Việt Nam từ nhiều nguồn dữ liệu (CSV, Excel hoặc dữ liệu thống kê công khai), thực hiện kiểm soát chất lượng dữ liệu (Data Quality) thông qua các bộ quy tắc nghiệp vụ được cấu hình sẵn, tự động phát hiện và xử lý dữ liệu lỗi (Data Healing), sau đó nạp dữ liệu vào SQL Server Data Warehouse theo mô hình Star Schema.
 
 Kho dữ liệu sau khi hoàn thiện được kết nối với Tableau Desktop để xây dựng Dashboard và Story trực quan, hỗ trợ phân tích xu hướng phát triển ngành điện tử Việt Nam, giúp doanh nghiệp và nhà quản lý dễ dàng khai thác dữ liệu phục vụ ra quyết định.
+# Các Giai Đoạn & Tính Năng Cốt Lõi
+Hệ thống được tổ chức theo quy trình ELT (Extract – Load – Transform).
+```mermaid
+flowchart TD
+    A["Nguồn Dữ Liệu (CSV / Excel / Dữ liệu thống kê)"] -->|Extract| B["Dữ Liệu Thô (Raw Data)"]
 
+    B -->|Scan & Validate| C["Báo Cáo Chất Lượng Dữ Liệu (data_issues.txt)"]
+
+    B -->|Cleaning & Transformation| D{"Transform (Làm Sạch & Chuẩn Hóa Dữ Liệu)"}
+
+    D -->|Lỗi Nghiêm Trọng| E["Dữ Liệu Cách Ly (df_critical.csv)"]
+
+    D -->|Hợp Lệ & Đã Chuẩn Hóa| F["Dữ Liệu Sạch (df_output.csv)"]
+
+    F -->|Load| G["SQL Server - Staging Table"]
+
+    G -->|Stored Procedure| H["Data Warehouse (Star Schema)"]
+
+    H -->|Analytics| I["Tableau Dashboard & Story"]
+```
 # Cấu trúc dự án
 
 ```text
