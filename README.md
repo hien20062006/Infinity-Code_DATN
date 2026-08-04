@@ -7,31 +7,50 @@ Kho dữ liệu sau khi hoàn thiện được kết nối với Tableau Desktop
 # Các Giai Đoạn & Tính Năng Cốt Lõi
 Hệ thống được tổ chức theo quy trình ELT (Extract – Load – Transform).
 ```mermaid
-flowchart TD
+flowchart LR
 
-A["🌐 Các Website Thương mại & Thống kê"] --> B["Python Web Scraping"]
+subgraph S1["🌐 Data Sources"]
+A1["Thiết bị điện tử<br/>Thegioididong<br/>FPT Shop<br/>CellphoneS"]
+A2["Đơn vị vận chuyển<br/>GHN<br/>GHTK<br/>Viettel Post<br/>J&T Express"]
+A3["Dữ liệu công khai<br/>Đăng ký kinh doanh<br/>Open API Tỉnh/Thành"]
+end
 
-B --> C["Raw Dataset"]
+subgraph S2["🐍 Python Data Pipeline"]
+B1["Web Scraping"]
+B2["Data Validation"]
+B3["Data Cleaning"]
+B4["Data Transformation"]
+end
 
-C --> D{"Data Processing"}
+subgraph S3["🗄️ Data Warehouse"]
+C1["Raw Data"]
+C2["SQL Server - Staging"]
+C3["Star Schema"]
+end
 
-D --> D1["Data Validation"]
-D --> D2["Data Cleaning"]
-D --> D3["Data Transformation"]
+subgraph S4["📊 Analytics"]
+D1["Tableau Dashboard"]
+D2["Tableau Story"]
+D3["Business Insights"]
+end
 
-D1 --> E["SQL Server - Staging"]
-D2 --> E
-D3 --> E
+A1 --> B1
+A2 --> B1
+A3 --> B1
 
-E --> F["Data Warehouse"]
+B1 --> B2
+B2 --> B3
+B3 --> B4
 
-F --> G["Fact Tables"]
-F --> H["Dimension Tables"]
+B4 --> C1
+C1 --> C2
+C2 --> C3
 
-G --> I["Tableau Dashboard"]
-H --> I
+C3 --> D1
+C3 --> D2
 
-I --> J["Business Analysis & Decision Support"]
+D1 --> D3
+D2 --> D3
 ```
 # 1. Extract (Trích Xuất & Kiểm Tra Dữ Liệu)
 Tự động đọc dữ liệu từ các tệp CSV/Excel trong thư mục data/raw/.
