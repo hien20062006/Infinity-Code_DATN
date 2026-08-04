@@ -7,49 +7,31 @@ Kho dữ liệu sau khi hoàn thiện được kết nối với Tableau Desktop
 # Các Giai Đoạn & Tính Năng Cốt Lõi
 Hệ thống được tổ chức theo quy trình ELT (Extract – Load – Transform).
 ```mermaid
-flowchart TB
+flowchart TD
 
-subgraph S1["📥 Data Sources"]
-A1["CSV Files"]
-A2["Excel Files"]
-A3["Open Data / Statistics"]
-end
+A["🌐 Các Website Thương mại & Thống kê"] --> B["Python Web Scraping"]
 
-subgraph S2["⚙️ ELT Pipeline"]
-B1["Extract"]
-B2["Data Validation"]
-B3["Data Cleaning"]
-B4["Data Transformation"]
-end
+B --> C["Raw Dataset"]
 
-subgraph S3["🗄️ Data Storage"]
-C1["Staging Database"]
-C2["Data Warehouse"]
-C3["Star Schema"]
-end
+C --> D{"Data Processing"}
 
-subgraph S4["📊 Analytics"]
-D1["Tableau Dashboard"]
-D2["Interactive Reports"]
-D3["Business Insights"]
-end
+D --> D1["Data Validation"]
+D --> D2["Data Cleaning"]
+D --> D3["Data Transformation"]
 
-A1 --> B1
-A2 --> B1
-A3 --> B1
+D1 --> E["SQL Server - Staging"]
+D2 --> E
+D3 --> E
 
-B1 --> B2
-B2 --> B3
-B3 --> B4
+E --> F["Data Warehouse"]
 
-B4 --> C1
-C1 --> C2
-C2 --> C3
+F --> G["Fact Tables"]
+F --> H["Dimension Tables"]
 
-C3 --> D1
-C3 --> D2
-D1 --> D3
-D2 --> D3
+G --> I["Tableau Dashboard"]
+H --> I
+
+I --> J["Business Analysis & Decision Support"]
 ```
 # 1. Extract (Trích Xuất & Kiểm Tra Dữ Liệu)
 Tự động đọc dữ liệu từ các tệp CSV/Excel trong thư mục data/raw/.
