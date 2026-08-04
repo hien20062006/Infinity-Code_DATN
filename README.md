@@ -7,22 +7,49 @@ Kho dữ liệu sau khi hoàn thiện được kết nối với Tableau Desktop
 # Các Giai Đoạn & Tính Năng Cốt Lõi
 Hệ thống được tổ chức theo quy trình ELT (Extract – Load – Transform).
 ```mermaid
-flowchart TD
-    A["Nguồn Dữ Liệu (CSV / Excel / Dữ liệu thống kê)"] -->|Extract| B["Dữ Liệu Thô (Raw Data)"]
+flowchart TB
 
-    B -->|Scan & Validate| C["Báo Cáo Chất Lượng Dữ Liệu (data_issues.txt)"]
+subgraph S1["📥 Data Sources"]
+A1["CSV Files"]
+A2["Excel Files"]
+A3["Open Data / Statistics"]
+end
 
-    B -->|Cleaning & Transformation| D{"Transform (Làm Sạch & Chuẩn Hóa Dữ Liệu)"}
+subgraph S2["⚙️ ELT Pipeline"]
+B1["Extract"]
+B2["Data Validation"]
+B3["Data Cleaning"]
+B4["Data Transformation"]
+end
 
-    D -->|Lỗi Nghiêm Trọng| E["Dữ Liệu Cách Ly (df_critical.csv)"]
+subgraph S3["🗄️ Data Storage"]
+C1["Staging Database"]
+C2["Data Warehouse"]
+C3["Star Schema"]
+end
 
-    D -->|Hợp Lệ & Đã Chuẩn Hóa| F["Dữ Liệu Sạch (df_output.csv)"]
+subgraph S4["📊 Analytics"]
+D1["Tableau Dashboard"]
+D2["Interactive Reports"]
+D3["Business Insights"]
+end
 
-    F -->|Load| G["SQL Server - Staging Table"]
+A1 --> B1
+A2 --> B1
+A3 --> B1
 
-    G -->|Stored Procedure| H["Data Warehouse (Star Schema)"]
+B1 --> B2
+B2 --> B3
+B3 --> B4
 
-    H -->|Analytics| I["Tableau Dashboard & Story"]
+B4 --> C1
+C1 --> C2
+C2 --> C3
+
+C3 --> D1
+C3 --> D2
+D1 --> D3
+D2 --> D3
 ```
 # Cấu trúc dự án
 
