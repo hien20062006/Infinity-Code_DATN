@@ -51,36 +51,55 @@ C3 --> D2
 D1 --> D3
 D2 --> D3
 ```
-# Cấu trúc dự án
+# 1. Extract (Trích Xuất & Kiểm Tra Dữ Liệu)
+Tự động đọc dữ liệu từ các tệp CSV/Excel trong thư mục data/raw/.
+Kiểm tra chất lượng dữ liệu bằng Data Quality Validator.
+Phát hiện dữ liệu thiếu, sai định dạng, trùng lặp hoặc vi phạm quy tắc nghiệp vụ.
+Xuất báo cáo chất lượng dữ liệu tại:
+docs/03_notes/engineering/data_issues.txt
+# 2. Transform (Biến Đổi & Chuẩn Hóa)
+Data Healing (Làm sạch dữ liệu)
 
-```text
-Du_An_Tot_Nghiep/
-│
-├── data/
-│   ├── raw/          <- Dữ liệu gốc, không chỉnh sửa
-│   ├── interim/      <- Dữ liệu trung gian đã qua xử lý
-│   ├── processed/    <- Dữ liệu cuối cùng dùng để modeling
-│   └── external/     <- Dữ liệu từ nguồn bên ngoài
-│
-├── notebooks/        <- Jupyter notebooks
-├── models/           <- Model đã train
-│
-├── reports/
-│   └── figures/      <- Biểu đồ, hình ảnh báo cáo
-│
-├── docs/             <- Tài liệu dự án
-├── references/       <- Tài liệu tham khảo
-│
-├── du_an_tot_nghiep/
-│   ├── config.py
-│   ├── dataset.py
-│   ├── features.py
-│   ├── plots.py
-│   │
-│   └── modeling/
-│       ├── train.py
-│       └── predict.py
-│
-├── requirements.txt
-└── pyproject.toml
-```
+Hệ thống tự động:
+
+Xử lý dữ liệu bị thiếu bằng giá trị trung bình hoặc trung vị theo từng nhóm dữ liệu.
+Chuẩn hóa tên tỉnh/thành phố.
+Chuẩn hóa tên nhóm sản phẩm điện tử.
+Chuẩn hóa định dạng ngày tháng.
+Chuẩn hóa đơn vị tính và giá trị tiền tệ.
+Loại bỏ dữ liệu trùng lặp.
+Chuẩn hóa kiểu dữ liệu phục vụ Data Warehouse.
+Data Segregation (Phân loại dữ liệu)
+
+Sau khi xử lý, dữ liệu được chia thành:
+
+PASS
+Dữ liệu hợp lệ.
+WARNING
+Dữ liệu đã được tự động sửa lỗi.
+CRITICAL
+Các bản ghi sai nghiêm trọng (ví dụ: giá trị âm, thiếu khóa chính, sai năm thống kê...) được tách riêng để phục vụ kiểm tra.
+
+Các dữ liệu đầu ra được lưu tại:
+
+data/output/
+# 3. Load (Nạp Dữ Liệu Vào Kho Dữ Liệu)
+
+Dữ liệu sạch được nạp vào bảng Staging trong SQL Server với tốc độ tối ưu thông qua fast_executemany.
+
+Sau đó hệ thống tự động thực thi Stored Procedure:
+
+sp_load_star_schema
+
+để phân bổ dữ liệu sang mô hình Star Schema.
+
+Fact Table
+FactElectronics
+Dimension Tables
+DimTime
+DimLocation
+DimProduct
+DimCategory
+DimCompany
+
+Kho dữ liệu được tối ưu hóa nhằm tăng hiệu năng truy vấn, giúp Tableau khai thác dữ liệu nhanh chóng và hiệu quả.
