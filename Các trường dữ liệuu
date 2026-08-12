@@ -27,3 +27,93 @@ Supplier            Nhà cung cấp
 Warehouse           Kho hàng
 Tax_Rate            Thuế suất
 Satisfaction_Score  Điểm hài lòng
+
+
+Tên gốc	            Tên tiếng Việt
+typeCode	        Mã loại dữ liệu
+freqCode	        Mã tần suất
+refPeriodId	        Mã kỳ tham chiếu
+refYear	Năm         tham chiếu
+refMonth	        Tháng tham chiếu
+period	            Kỳ báo cáo
+reporterCode	    Mã quốc gia báo cáo
+reporterISO	Mã      ISO quốc gia báo cáo
+reporterDesc	    Tên quốc gia báo cáo
+flowCode	        Mã luồng thương mại
+flowDesc	        Loại hình thương mại
+partnerCode	        Mã quốc gia đối tác
+partnerISO	        Mã ISO quốc gia đối tác
+partnerDesc	        Tên quốc gia đối tác
+partner2Code	    Mã đối tác thứ hai
+partner2ISO	        Mã ISO đối tác thứ hai
+partner2Desc	    Tên đối tác thứ hai
+classificationCode	           Mã hệ thống phân loại
+classificationSearchCode	   Mã tra cứu phân loại
+isOriginalClassification	   Phân loại gốc
+cmdCode	            Mã hàng hóa
+cmdDesc	            Mô tả hàng hóa
+aggrLevel	        Cấp độ tổng hợp
+isLeaf	            Cấp chi tiết cuối
+customsCode	        Mã hải quan
+customsDesc	        Mô tả hải quan
+mosCode	            Mã phương thức vận chuyển
+motCode	            Mã phương thức vận tải
+motDesc	            Mô tả phương thức vận tải
+qtyUnitCode	        Mã đơn vị số lượng
+qtyUnitAbbr	        Viết tắt đơn vị số lượng
+qty	                Số lượng
+isQtyEstimated	    Số lượng ước tính
+altQtyUnitCode	    Mã đơn vị số lượng thay thế
+altQtyUnitAbbr	    Viết tắt đơn vị số lượng thay thế
+altQty	            Số lượng thay thế
+isAltQtyEstimated	Số lượng thay thế ước tính
+netWgt	            Trọng lượng tịnh (kg)
+isNetWgtEstimated	Trọng lượng tịnh ước tính
+grossWgt	        Trọng lượng cả bì (kg)
+isGrossWgtEstimated	Trọng lượng cả bì ước tính
+cifvalue	        Giá trị CIF (USD)
+fobvalue	        Giá trị FOB (USD)
+primaryValue	    Giá trị giao dịch (USD)
+legacyEstimationFlag	        Cờ ước tính dữ liệu cũ
+isReported	        Dữ liệu được báo cáo
+isAggregate	        Dữ liệu tổng hợp
+
+
+
+
+Tên gốc	            Tên tiếng Việt
+Date	            Ngày
+Apple	            Apple
+Samsung	            Samsung
+Oppo	            Oppo
+Xiaomi	            Xiaomi
+Vivo	            Vivo
+Nokia	            Nokia
+Realme	            Realme
+Unknown	            Không xác định
+Huawei	            Huawei
+Sony	            Sony
+Vsmart	            Vsmart
+LG	                LG
+Asus	            Asus
+HTC	                HTC
+Lenovo	            Lenovo
+Google	            Google
+Tecno	            Tecno
+RIM	                RIM
+Motorola	        Motorola
+BBK	                BBK
+Itel	            Itel
+Mobicel	            Mobicel
+Pantech	            Pantech
+Honor	            Honor
+OnePlus	            OnePlus
+ZTE	                ZTE
+Wiko	            Wiko
+Infinix	            Infinix
+Alcatel	            Alcatel
+Sharp	            Sharp
+Acer	            Acer
+Meizu	            Meizu
+Coolpad	            Coolpad
+Other	            Khác
