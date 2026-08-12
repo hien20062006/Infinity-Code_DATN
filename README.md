@@ -1,4 +1,4 @@
-# Đồ Án Tốt Nghiệp
+# Đồ Án Tốt Nghiệp: Phân Tích Ngành Điện Tử Việt Nam
 
 # Data Cleaning
 ## Tổng quan
