@@ -1,7 +1,10 @@
-Dự án sử dụng mô hình: (Mô hình ngôi sao)
+Mô hình dữ liệu
+
+Dự án sử dụng mô hình ngôi sao (Star Schema) để tổ chức và quản lý dữ liệu. Mô hình được xây dựng với bảng dữ liệu trung tâm kết nối với các bảng dữ liệu chiều, giúp dữ liệu được tổ chức một cách rõ ràng và thuận tiện cho quá trình truy vấn, phân tích.
 
 Mô hình ngôi sao giúp:
-- Tối ưu truy vấn dữ liệu
-- Dễ quản lý dữ liệu
-- Dễ mở rộng hệ thống
-- Phù hợp cho phân tích dữ liệu lớn
+
+- Tối ưu hóa truy vấn dữ liệu: Giúp quá trình truy vấn và tổng hợp dữ liệu diễn ra nhanh chóng, thuận tiện cho việc phân tích.
+- Dễ dàng quản lý dữ liệu: Dữ liệu được phân chia thành các bảng có chức năng rõ ràng, giúp thuận tiện trong việc quản lý và xử lý.
+- Dễ dàng mở rộng hệ thống: Có thể bổ sung thêm các bảng chiều hoặc chỉ tiêu phân tích khi hệ thống phát sinh nhu cầu mới.
+- Phù hợp với phân tích dữ liệu lớn: Cấu trúc dữ liệu phù hợp với việc tổng hợp, phân tích và trực quan hóa dữ liệu trên các công cụ như Tableau và Power BI.
