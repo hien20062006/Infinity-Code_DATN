@@ -1,0 +1,11 @@
+Mô hình dữ liệu được xây dựng nhằm:
+Mô hình dữ liệu được xây dựng nhằm tổ chức, quản lý và khai thác dữ liệu bán hàng điện tử một cách có hệ thống. Việc xây dựng mô hình giúp dữ liệu được lưu trữ rõ ràng, thuận tiện cho quá trình truy vấn, tổng hợp và phân tích, đồng thời hỗ trợ hiệu quả cho các yêu cầu trực quan hóa dữ liệu.
+
+Cụ thể, mô hình dữ liệu được xây dựng nhằm:
+
+    - Quản lý dữ liệu bán hàng điện tử: Tổ chức và lưu trữ các thông tin liên quan đến sản phẩm, khách hàng, địa điểm và hoạt động bán hàng.
+    - Phân tích doanh thu và lợi nhuận: Hỗ trợ tổng hợp và phân tích các chỉ tiêu liên quan đến giá trị bán hàng, doanh thu và lợi nhuận.
+    - Theo dõi xu hướng tiêu dùng: Hỗ trợ theo dõi sự thay đổi của hoạt động bán hàng và xu hướng tiêu dùng theo thời gian.
+    - Phân tích khách hàng và sản phẩm: Cung cấp dữ liệu phục vụ việc phân tích đặc điểm khách hàng, sản phẩm và tình hình bán hàng.
+    - Hỗ trợ trực quan hóa dữ liệu bằng Tableau: Dữ liệu sau khi được xử lý có thể được kết nối với Tableau để xây dựng các biểu đồ và Dashboard trực quan.
+    - Hỗ trợ xây dựng Data Warehouse: Mô hình dữ liệu tạo nền tảng cho việc tổ chức, lưu trữ và khai thác dữ liệu trong hệ thống Data Warehouse.
